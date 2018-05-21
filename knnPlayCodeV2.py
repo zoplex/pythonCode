@@ -1,7 +1,7 @@
 import numpy as np
 import pandas as pd
 from sklearn.datasets import load_iris
-
+import matplotlib.pyplot as plt
 
 iris = load_iris()
 X = iris.data
@@ -60,6 +60,13 @@ for k in [1, 3, 5, 10, 20, 50, 100]:
         validation_accuracies.append((k, accr))
 
 print("validation accuracies: ", validation_accuracies)
+validation_accuracies.remove((1,100.0))                         # remove k=1
+ap = np.array(validation_accuracies)
+# plt.plot(validation_accuracies)
+plt.plot(ap[:,0], ap[:,1])
+bestk = ap[ np.argmax(ap[:,1])]
+print("Best k is %f ", bestk)
+
 
 
 
