@@ -1,3 +1,10 @@
+pd.set_option('display.width', 300)
+np.set_printoptions(linewidth=300)
+pd.set_option('display.max_colwidth', -1)
+pd.set_option('display.max_columns', None)
+
+
+
 # drop nas in df
 df = df.dropna(how='any')
 X.dropna(how='any', inplace=True, axis=0)
@@ -96,6 +103,36 @@ X = pd.get_dummies(X)
 # split:
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=7)
+
+
+
+import pandas as pd
+df1 = pd.read_csv('/home/zorankrunic0/PycharmProjects/DAT210x/Cached Datasets/dataset-har-PUC-Rio-ugulino/dataset-har-PUC-Rio-ugulino.csv'
+                  ,sep=";")
+
+# Pandas will check your dataset and then on a per-column basis decide if it's a numeric-type: int32,
+# float32, float64. date-type: datetime64, timedelta[ns]. Or other object-type: object (string), category.
+# If Pandas incorrectly assigns a type to a column, you can convert it, and we'll discuss that shortly.
+
+pd.unique(df1.age)
+df1[df1.y1==92].shape
+df1[df1['y1'].isin([100,98])].shape
+#The .loc[] method selects by column label, and .iloc[] selects by column index
+
+
+
+import pandas as pd
+dfm = pd.read_csv('/home/zorankrunic0/PycharmProjects/DAT210x/Module2/Datasets/direct_marketing.csv',sep=",")
+print(dfm.dtypes)
+print(df.shape)
+print(dfm.describe())
+dfm.head(5)
+
+type(dfm[['zip_code']])
+#Out[93]: pandas.core.frame.DataFrame
+type(dfm['zip_code'])
+#Out[94]: pandas.core.series.Series
+
 
 
 

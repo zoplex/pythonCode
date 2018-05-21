@@ -16,6 +16,9 @@ df2['c1'] = [11,20]
 df2['c2'] = [13,12]
 df2['c3'] = [15,13]
 
+
+
+
 distances = np.sum(np.abs(df1 - df2.iloc[1,:]), axis = 1)
 
 
