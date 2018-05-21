@@ -62,3 +62,7 @@ for k in [1, 3, 5, 10, 20, 50, 100]:
 print("validation accuracies: ", validation_accuracies)
 
 
+
+# done
+
+
