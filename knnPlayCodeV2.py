@@ -59,6 +59,7 @@ for k in [1, 3, 5, 10, 20, 50, 100]:
         print("accuracy achieved is %f percent" % accr)
         validation_accuracies.append((k, accr))
 
+
 print("validation accuracies: ", validation_accuracies)
 validation_accuracies.remove((1,100.0))                         # remove k=1
 ap = np.array(validation_accuracies)
@@ -67,6 +68,13 @@ plt.plot(ap[:,0], ap[:,1])
 bestk = ap[ np.argmax(ap[:,1])]
 print("Best k is %f ", bestk)
 
+# final step for test data
+nn2 = NearestNeighborK()
+nn2.train(X_train, Y_train)
+Y_predict = nn2.predict(X_test, k = 5)
+dflabel = np.column_stack((Y_test, Y_predict))
+accr = np.round(np.mean(Y_predict == Y_test) * 100.0, 2)
+print("FINAL accuracy achieved on test data is %f percent" % accr)
 
 
 
